@@ -29,6 +29,13 @@
             {
               "client_id": "259362764057-mtcgcf4phrh0ttv9o6tjecle25bi3nlt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "259362764057-7t42cget1c8hdoi5bb8pekpk39k00eqq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaCieszyn"
+              }
             }
           ]
         }
