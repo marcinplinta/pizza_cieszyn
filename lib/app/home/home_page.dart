@@ -28,7 +28,11 @@ class _HomePageState extends State<HomePage> {
           return const RestaurantPageContent();
         }
         if (currentIndex == 1) {
-          return const AddOpinionContent();
+          return AddOpinionContent(onSave: () {
+            setState(() {
+              currentIndex = 0;
+            });
+          });
         }
 
         return MyAccountContent(email: widget.user.email);
