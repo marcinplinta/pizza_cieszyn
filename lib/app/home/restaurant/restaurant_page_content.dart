@@ -33,20 +33,20 @@ class RestaurantPageContent extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Restauracja'),
-                          SizedBox(
+                          const Text('Restauracja'),
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(document['name']),
                         ],
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Pizza'),
-                          SizedBox(
+                          const Text('Pizza'),
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(document['pizza']),
@@ -55,8 +55,8 @@ class RestaurantPageContent extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Ocena'),
-                          SizedBox(
+                          const Text('Ocena'),
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(document['rating'].toString()),
