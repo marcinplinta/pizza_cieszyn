@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_cieszyn/app/home/restaurant/cubit/restaurant_cubit.dart';
@@ -11,7 +10,7 @@ class RestaurantPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RestaurantCubit(),
+      create: (context) => RestaurantCubit()..start(),
       child: BlocBuilder<RestaurantCubit, RestaurantState>(
         builder: (context, state) {
           if (state.errorMessage.isNotEmpty) {
@@ -72,13 +71,6 @@ class RestaurantPageContent extends StatelessWidget {
               ],
             ],
           );
-
-          return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-              stream: FirebaseFirestore.instance
-                  .collection('restaurant')
-                  .orderBy('rating', descending: true)
-                  .snapshots(),
-              builder: (context, snapshot) {});
         },
       ),
     );
