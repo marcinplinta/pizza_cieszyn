@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pizza_cieszyn/app/home/restaurant/cubit/restaurant_cubit.dart';
+import 'package:pizza_cieszyn/app/features/home/restaurant/cubit/restaurant_cubit.dart';
 
 class RestaurantPageContent extends StatelessWidget {
   const RestaurantPageContent({
