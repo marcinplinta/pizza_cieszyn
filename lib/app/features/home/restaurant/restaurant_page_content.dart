@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pizza_cieszyn/app/features/home/restaurant/cubit/restaurant_cubit.dart';
 
 class RestaurantPageContent extends StatelessWidget {
   const RestaurantPageContent({
@@ -8,21 +9,23 @@ class RestaurantPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance
-            .collection('restaurant')
-            .orderBy('rating', descending: true)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text('Wystąpił nieoczekiwany problem'));
+    return BlocProvider(
+      create: (context) => RestaurantCubit()..start(),
+      child: BlocBuilder<RestaurantCubit, RestaurantState>(
+        builder: (context, state) {
+          if (state.errorMessage.isNotEmpty) {
+            return Center(
+              child: Text(
+                'Wystąpił nieoczekiwany problem: ${state.errorMessage}',
+              ),
+            );
           }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text('Proszę czekać, trwa ładowanie danych');
+          if (state.isLoading) {
+            return const Center(child: CircularProgressIndicator());
           }
 
-          final documents = snapshot.data!.docs;
+          final documents = state.documents;
 
           return ListView(
             children: [
@@ -68,6 +71,8 @@ class RestaurantPageContent extends StatelessWidget {
               ],
             ],
           );
-        });
+        },
+      ),
+    );
   }
 }

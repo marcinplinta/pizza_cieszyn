@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pizza_cieszyn/app/home/add_oppinion/add_oppinion_page_content.dart';
-import 'package:pizza_cieszyn/app/home/my_account/my_account_page_content.dart';
-import 'package:pizza_cieszyn/app/home/restaurant/restaurant_page_content.dart';
+import 'package:pizza_cieszyn/app/features/home/add_oppinion/add_oppinion_page_content.dart';
+import 'package:pizza_cieszyn/app/features/home/my_account/my_account_page_content.dart';
+import 'package:pizza_cieszyn/app/features/home/restaurant/restaurant_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
